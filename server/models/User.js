@@ -20,7 +20,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  save: [Save.schema],
+  save: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Save',
+    },
+  ],
 });
 
 // Set up pre-save middleware to create password
@@ -35,6 +40,7 @@ userSchema.pre('save', async function (next) {
 
 // Compare the incoming password with the hashed password
 userSchema.methods.isCorrectPassword = async function (password) {
+  // Check if return needed before await
   await bcrypt.compare(password, this.password);
 };
 
