@@ -1,0 +1,34 @@
+.nav-header {
+    background-color: #B2BEB5; /* Ash gray background */
+    padding: 1rem;
+    position: fixed; /* Fixes the navbar to the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensures it extends across the full width of the page */
+    z-index: 1000; /* Keeps it above other content */
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%; /* Ensures it spans the full width */
+    box-sizing: border-box; /* Ensures padding and borders are included in the width */
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    position: relative; /* Required for the text-shadow to work correctly */
+  }
+  
+  .nav-link:hover {
+    color: #ff6347; /* Change to your desired hover text color */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9), /* More noticeable glow */
+                 0 0 30px rgba(255, 255, 255, 0.6); /* Additional outer glow */
+  }
+  
+  .nav-link.active {
+    font-weight: bold;
+  }

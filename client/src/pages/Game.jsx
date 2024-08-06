@@ -1,7 +1,7 @@
-function Stats() {
+function Game() {
     return (
         <div></div>
     );
 }
 
-export default Stats
+export default Game

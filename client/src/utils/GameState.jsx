@@ -17,9 +17,9 @@ const GameProvider = ({ value = [], ...props}) => {
     return <Provider value={[state, dispatch]} {...props} />;
 };
 
-const useStoreContext = () => {
-    return useContext(StoreContext);
+const useGameContext = () => {
+    return useContext(GameContext);
   };
   
-  export { StoreProvider, useStoreContext };
+  export { GameProvider, useGameContext };
   

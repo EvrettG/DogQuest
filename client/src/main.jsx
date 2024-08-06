@@ -4,16 +4,16 @@ import './index.css'
 
 import App from './App.jsx'
 import Home from './pages/Home';
-import NoMatch from './pages/NoMatch';
+import Error from './pages/Error';
 import Login from './pages/Login';
-import Signup from './pages/Signup';
-
+import Stats from './pages/Stats'
+import Game from './pages/Game'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <NoMatch />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
@@ -22,8 +22,11 @@ const router = createBrowserRouter([
         path: '/login',
         element: <Login />
       }, {
-        path: '/signup',
-        element: <Signup />
+        path: '/stats',
+        element: <Stats />
+      }, {
+        path: '/game',
+        element: <Game />
       }
     ]
   }
