@@ -1,7 +1,11 @@
+import { Outlet, } from 'react-router-dom';
+
 function Game() {
-    return (
-        <div></div>
-    );
+  return (
+    <div className="game">
+         <Outlet />
+    </div>
+  );
 }
 
-export default Game
+export default Game;
