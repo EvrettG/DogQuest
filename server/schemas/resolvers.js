@@ -1,19 +1,19 @@
-const { User, Save, Item, DiggableHole, Upgrade } = require('../models');
+const { User, SaveGame, Item, DiggableHole, Upgrade } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     user: async (parent, args, context) => {
       if (context.user) {
-        return User.findById(context.user._id).populate('save');
+        return User.findById(context.user._id).populate('saveGame');
       }
       throw new AuthenticationError('Not logged in');
     },
-    saves: async () => {
-      return Save.find({}).populate('inventory').populate('digging').populate('upgrades');
+    saveGames: async () => {
+      return SaveGame.find({}).populate('inventory').populate('digging').populate('upgrades');
     },
-    save: async (parent, { id }) => {
-      return Save.findById(id).populate('inventory').populate('digging').populate('upgrades');
+    saveGame: async (parent, { id }) => {
+      return SaveGame.findById(id).populate('inventory').populate('digging').populate('upgrades');
     },
   },
   Mutation: {
@@ -51,13 +51,13 @@ const resolvers = {
 
       return { token, user };
     },
-    addSave: async (parent, args) => {
-      const save = await Save.create(args);
-      return save;
+    addSaveGame: async (parent, args) => {
+      const saveGame = await SaveGame.create(args);
+      return saveGame;
     },
-    updateSave: async (parent, { id, ...args }) => {
-      const save = await Save.findByIdAndUpdate(id, args, { new: true }).populate('inventory').populate('digging').populate('upgrades');
-      return save;
+    updateSaveGame: async (parent, { id, ...args }) => {
+      const saveGame = await SaveGame.findByIdAndUpdate(id, args, { new: true }).populate('inventory').populate('digging').populate('upgrades');
+      return saveGame;
     },
   },
 };

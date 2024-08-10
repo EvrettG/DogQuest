@@ -1,42 +1,24 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.page-body{
+  background-color: slategray;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Make the div take the full height of the viewport */
+  min-width: 100%; /* Ensure it takes the full width as well */
+  min-width: 100vh;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* Ensure the Outlet content is pushed below the Nav */
+.page-body > .outlet {
+  flex-grow: 1;
+  padding-top: 100px; /* Push the content below the Nav, same as Nav height */
+  box-sizing: border-box; /* Ensure padding does not affect width */
+  min-width: 100vh;
+  
 }

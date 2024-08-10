@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const SaveSchema = new Schema({
+const SaveGameSchema = new Schema({
   creationDate: {
     type: Date,
     default: Date.now,
@@ -40,6 +40,6 @@ const SaveSchema = new Schema({
   ],
 });
 
-const Save = mongoose.model('Save', SaveSchema);
+const SaveGame = mongoose.model('SaveGame', SaveGameSchema);
 
-module.exports = Save;
+module.exports = SaveGame;

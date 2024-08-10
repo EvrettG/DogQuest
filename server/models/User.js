@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const Save = require('./Save');
+const SaveGame = require('./SaveGame');
 
 const userSchema = new Schema({
   userName: {
@@ -20,16 +20,16 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  save: [
+  SaveGame: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Save',
+      ref: 'SaveGame',
     },
   ],
 });
 
 // Set up pre-save middleware to create password
-userSchema.pre('save', async function (next) {
+userSchema.pre('saveGame', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);

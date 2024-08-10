@@ -6,6 +6,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import './App.css'
 
 import Nav from './components/Nav/Nav';
 // import { GameProvider } from './utils/GameState';
@@ -32,10 +33,12 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div>
+      <div className="page-body">
         {/* <GameProvider> */}
           <Nav />
+          <div className="outlet">
           <Outlet />
+          </div>
         {/* </GameProvider> */}
       </div>
     </ApolloProvider>

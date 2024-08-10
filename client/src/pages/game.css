@@ -1,0 +1,9 @@
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkseagreen;
+    width: 75%;
+    margin: 0 auto; /* Centers the div horizontally */
+    min-height: 75vh; /* Ensures it takes up at least the full height of the viewport */
+}

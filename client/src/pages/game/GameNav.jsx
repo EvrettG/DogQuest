@@ -1,7 +1,5 @@
 import { NavLink, } from "react-router-dom";
 
-// import './GameNav.css';
-
 function GameNav() {
 
 

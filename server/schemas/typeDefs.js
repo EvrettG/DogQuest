@@ -5,7 +5,7 @@ const typeDefs = `
     user: User
   }
 
-  type Save {
+  type SaveGame {
     _id: ID
     creationDate: String
     lastUpdatedDate: String
@@ -21,7 +21,7 @@ const typeDefs = `
     userName: String!
     email: String
     password: String!
-    save: [Save]
+    saveGame: [SaveGame]
   }
 
   type Item {
@@ -47,8 +47,8 @@ const typeDefs = `
 
   type Query {
     user: User
-    saves: [Save]
-    save(id: ID!): Save
+    saveGames: [SaveGame]
+    saveGame(id: ID!): SaveGame
   }
 
   type Mutation {
@@ -58,21 +58,21 @@ const typeDefs = `
       password: String!
     ): Auth
     login(userName: String!, password: String!): Auth
-    addSave(
+    addSaveGame(
       bones: Int
       coins: Int
       inventory: [ID]
       digging: [ID]
       upgrades: [ID]
-    ): Save
-    updateSave(
+    ): SaveGame
+    updateSaveGame(
       id: ID!
       bones: Int
       coins: Int
       inventory: [ID]
       digging: [ID]
       upgrades: [ID]
-    ): Save
+    ): SaveGame
   }
 `;
 
