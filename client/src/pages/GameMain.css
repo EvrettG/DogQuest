@@ -11,3 +11,15 @@
     width: 100%; /* Ensure the header spans the full width of the parent */
     box-sizing: border-box;
 }
+.dig{
+    cursor: pointer;
+    width: 250px;
+    height: 150px;
+    border: 1px darkblue;
+    margin: 10px;
+    border-style: solid;
+}
+
+.dig.selected {
+    background-color: lightblue;
+  }

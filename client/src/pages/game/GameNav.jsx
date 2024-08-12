@@ -1,7 +1,8 @@
 import { NavLink, } from "react-router-dom";
+import { useGameState } from '../../utils/GameState';
 
 function GameNav() {
-
+    const { state } = useGameState();    
 
     return (
         <header className="game-header">
@@ -21,6 +22,7 @@ function GameNav() {
                     className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
                     Stats
                 </NavLink>
+                <p>Total Bones: {state.bones}</p>
             </nav>
         </header>
     )
