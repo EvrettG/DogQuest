@@ -19,9 +19,9 @@ const initialState = {
       { id: 3, xp: 0, level: 1, baseValue: 5 },
   ],
   upgrades: [
-      { id: 1, level: 0, cost: 5 },
-      { id: 2, level: 0, cost: 20 },
-      { id: 3, level: 0, cost: 50 },
+      { id: 'Soft Earth', level: 0, cost: 5 },
+      { id: 'Hard Earth', level: 0, cost: 20 },
+      { id: 'Compacted Rocks', level: 0, cost: 50 },
   ],
 };
 

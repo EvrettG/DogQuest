@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { GameStateContext } from '../../utils/GameState';
 import { buyUpgrade } from '../../utils/actions';
 
@@ -18,7 +18,7 @@ function Upgrades() {
             {state.upgrades.map(upgrade => (
                 <div
                     key={upgrade.id}
-                    className={`upgrade-item upgrade-${upgrade.id}`}
+                    className={`upgrade-item ${upgrade.id.replace(/\s+/g, '')}`}
                     onClick={() => handleUpgradePurchase(upgrade.id, upgrade.cost, upgrade.id === 1 ? 1 : upgrade.id === 2 ? 2 : 5)}
                 >
                     <p>Upgrade {upgrade.id}</p>
