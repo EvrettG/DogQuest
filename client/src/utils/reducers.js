@@ -3,6 +3,7 @@ import {
     INCREASE_XP,
     INCREASE_LEVEL,
     SET_ACTIVE_HOLE,
+    BUY_UPGRADE,
   } from './actions';
   
   export const Reducer = (state, action) => {
@@ -29,6 +30,21 @@ import {
               ? { ...hole, level: hole.level + 1 }
               : hole
           ),
+        };
+      case BUY_UPGRADE:
+        return {
+            ...state,
+            bones: state.bones - action.payload.cost,
+            holes: state.holes.map(hole =>
+                hole.id === action.payload.id
+                    ? { ...hole, baseValue: hole.baseValue + action.payload.value }
+                    : hole
+            ),
+            upgrades: state.upgrades.map(upgrade =>
+                upgrade.id === action.payload.id
+                    ? { ...upgrade, level: upgrade.level + 1 }
+                    : upgrade
+            ),
         };
       case SET_ACTIVE_HOLE:
         return {
