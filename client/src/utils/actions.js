@@ -5,10 +5,7 @@ export const INCREASE_LEVEL = 'INCREASE_LEVEL';
 export const BUY_UPGRADE = 'BUY_UPGRADE';
 // export const LEVEL_UP_HOLE = 'LEVEL_UP_HOLE';
 
-export const increaseBones = (amount) => ({
-    type: INCREASE_BONES,
-    payload: amount,
-});
+
 
 export const increaseLevel = (id) => ({
     type: INCREASE_LEVEL,

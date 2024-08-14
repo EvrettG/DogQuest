@@ -1,4 +1,4 @@
-import { GameStateContext } from './GameState';
+/* import { GameStateContext } from './GameState'; */
 
 
 /* function updateResources() {
@@ -11,7 +11,7 @@ import { GameStateContext } from './GameState';
     // Logic to check if any upgrades are unlocked
 } */
 
-function progressDigging() {
+/* function progressDigging() {
     console.log("Progressing digging...");
     // Logic to progress digging actions
     const { selectedHole, setBones, updateHoleProgress, holes } = useContext(GameStateContext);
@@ -22,10 +22,10 @@ function progressDigging() {
       // Increment the hole's experience by 1
       updateHoleProgress(selectedHole, holes[selectedHole].progressLevel + 1);
     }
-}
+} */
 
 // Main function that runs every 5 seconds
-function gameTick() {
+/* function gameTick() {
     console.log("Game tick...");
     // updateResources();
     // checkUpgrades();
@@ -36,4 +36,4 @@ function gameTick() {
 // Set up the interval to run gameTick every 5 seconds
 setInterval(gameTick, 5000);
 
-export default gameTick;
+export default gameTick; */

@@ -31,21 +31,22 @@ import {
               : hole
           ),
         };
-      case BUY_UPGRADE:
-        return {
+        case BUY_UPGRADE:
+          return {
             ...state,
             bones: state.bones - action.payload.cost,
-            holes: state.holes.map(hole =>
-                hole.id === action.payload.id
-                    ? { ...hole, baseValue: hole.baseValue + action.payload.value }
-                    : hole
+            holes: state.holes.map((hole) => {
+              if (hole.id === action.payload.holeId) {
+                return { ...hole, baseValue: hole.baseValue + action.payload.value };
+              }
+              return hole;
+            }),
+            upgrades: state.upgrades.map((upgrade) =>
+              upgrade.id === action.payload.id
+                ? { ...upgrade, level: upgrade.level + 1 }
+                : upgrade
             ),
-            upgrades: state.upgrades.map(upgrade =>
-                upgrade.id === action.payload.id
-                    ? { ...upgrade, level: upgrade.level + 1 }
-                    : upgrade
-            ),
-        };
+          };
       case SET_ACTIVE_HOLE:
         return {
           ...state,

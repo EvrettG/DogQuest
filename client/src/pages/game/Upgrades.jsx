@@ -8,9 +8,9 @@ function Upgrades() {
     const handleUpgradePurchase = (id, cost, value) => {
         if (state.bones >= cost) {
             dispatch(buyUpgrade(id, cost, value));
-        } else {
+        } /* else {
             alert("Not enough bones to buy this upgrade!");
-        }
+        } */
     };
 
     return (
