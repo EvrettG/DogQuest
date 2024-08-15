@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const Hole = require('./Hole')
+const Upgrade = require('./Upgrade')
 
-const SaveGameSchema = new Schema({
+const GameSchema = new Schema({
   creationDate: {
     type: Date,
     default: Date.now,
@@ -16,20 +18,13 @@ const SaveGameSchema = new Schema({
     type: Number,
     default: 0,
   },
-  coins: {
+  activeHole: {
     type: Number,
-    default: 0,
   },
-  inventory: [
+  holes: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Item',
-    },
-  ],
-  digging: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'DiggableHole',
+      ref: 'Hole',
     },
   ],
   upgrades: [
@@ -40,6 +35,6 @@ const SaveGameSchema = new Schema({
   ],
 });
 
-const SaveGame = mongoose.model('SaveGame', SaveGameSchema);
+const Game = mongoose.model('Game', GameSchema);
 
-module.exports = SaveGame;
+module.exports = Game;

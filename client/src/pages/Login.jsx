@@ -6,11 +6,13 @@ import './Login.css';
 
 function Login() {
   const [showSignup, setShowSignup] = useState(false);
-  const [loginForm, setLoginForm] = useState({ username: '', password: '' });
-  const [signupForm, setSignupForm] = useState({ username: '', email: '', password: '' });
 
-  const [login, { error: loginError }] = useMutation(LOGIN_USER);
-  const [signup, { error: signupError }] = useMutation(ADD_USER);
+  const [login] = useMutation(LOGIN_USER);
+  const [signup] = useMutation(ADD_USER);
+
+  const [loginForm, setLoginForm] = useState({ userName: '', password: '' });
+  const [signupForm, setSignupForm] = useState({ userName: '',  password: '' });
+
 
   const handleLoginChange = (event) => {
     const { name, value } = event.target;
@@ -20,15 +22,23 @@ function Login() {
   const handleSignupChange = (event) => {
     const { name, value } = event.target;
     setSignupForm({ ...signupForm, [name]: value });
+
   };
 
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
+    console.log('mark1')
     try {
+      console.log('2')
       const { data } = await login({
-        variables: { ...loginForm },
+        variables: { ...loginForm, },
       });
+      console.log('3')
+      // const { token } = data.addUser;
+      // Auth.login(token);
+      
       Auth.login(data.login.token);
+      console.log('sucess')
     } catch (e) {
       console.error(e);
     }
@@ -40,7 +50,10 @@ function Login() {
       const { data } = await signup({
         variables: { ...signupForm },
       });
-      Auth.login(data.signup.token);
+      const { token } = data.addUser;
+      Auth.login(token);
+      console.log('sucess')
+      // Auth.login(data.signup.token);
     } catch (e) {
       console.error(e);
     }
@@ -50,12 +63,12 @@ function Login() {
     <div className="login">
       <form onSubmit={handleLoginSubmit}>
         <div>
-          <label htmlFor="login-username">Username</label>
+          <label htmlFor="login-userName">Username</label>
           <input
             type="text"
-            id="login-username"
-            name="username"
-            value={loginForm.username}
+            id="login-userName"
+            name="userName"
+            value={loginForm.userName}
             onChange={handleLoginChange}
           />
         </div>
@@ -75,25 +88,16 @@ function Login() {
       {showSignup && (
         <form onSubmit={handleSignupSubmit} className="signup-form">
           <div>
-            <label htmlFor="signup-username">Username</label>
+            <label htmlFor="signup-userName">Username</label>
             <input
               type="text"
-              id="signup-username"
-              name="username"
-              value={signupForm.username}
+              id="signup-userName"
+              name="userName"
+              value={signupForm.userName}
               onChange={handleSignupChange}
             />
           </div>
-          <div>
-            <label htmlFor="signup-email">Email (optional)</label>
-            <input
-              type="email"
-              id="signup-email"
-              name="email"
-              value={signupForm.email}
-              onChange={handleSignupChange}
-            />
-          </div>
+
           <div>
             <label htmlFor="signup-password">Password</label>
             <input

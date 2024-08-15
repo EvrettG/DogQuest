@@ -1,19 +1,22 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const upgradeSchema = new Schema({
+const holeSchema = new Schema({
   id: {
     type: String,
     required: true,
   },
+  xp: {
+    type: Number,
+  },
   level: {
     type: Number,
   },
-  cost: {
+  baseValue: {
     type: Number,
   },
 });
 
-const Upgrade = mongoose.model('Upgrade', upgradeSchema);
+const Hole = mongoose.model('Hole', holeSchema);
 
-module.exports = Upgrade;
+module.exports = Hole;

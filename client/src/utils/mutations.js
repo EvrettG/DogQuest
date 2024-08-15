@@ -1,24 +1,46 @@
 import { gql } from '@apollo/client';
 
 export const LOGIN_USER = gql`
-  mutation login($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
+  mutation login($userName: String!, $password: String!) {
+    login(userName: $userName, password: $password) {
       token
       user {
         _id
-        username
       }
     }
   }
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+  mutation addUser($userName: String!, $password: String!) {
+    addUser(userName: $userName, password: $password) {
       token
       user {
         _id
-        username
+      }
+    }
+  }
+`;
+
+export const SAVE_GAME = gql`
+  mutation saveGame($input: GameInput!) {
+    saveGame(input: $input) {
+      _id
+      userName
+      savedGame {
+        bones
+        activeHole
+        holes {
+          id
+          xp
+          level
+          baseValue
+        }
+        upgrades {
+          id
+          level
+          cost
+        }
       }
     }
   }

@@ -5,19 +5,7 @@ export const INCREASE_LEVEL = 'INCREASE_LEVEL';
 export const BUY_UPGRADE = 'BUY_UPGRADE';
 // export const LEVEL_UP_HOLE = 'LEVEL_UP_HOLE';
 
-
-
-export const increaseLevel = (id) => ({
-    type: INCREASE_LEVEL,
-    payload: { id },
-});
-
 export const buyUpgrade = (id, cost, value) => ({
     type: BUY_UPGRADE,
     payload: { id, cost, value },
-});
-
-export const setActiveHole = (id) => ({
-    type: SET_ACTIVE_HOLE,
-    payload: id,
 });

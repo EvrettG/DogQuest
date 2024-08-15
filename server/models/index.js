@@ -1,7 +1,7 @@
 const User = require('./User');
-const SaveGame = require('./SaveGame')
+const Game = require('./Game')
 const Upgrade = require('./Upgrade')
-const Item = require('./Item')
-const DiggableHole = require('./DiggableHole')
+// const Item = require('./Item')
+const Hole = require('./Hole')
 
-module.exports = { User, SaveGame, Upgrade, Item, DiggableHole,};
+module.exports = { User, Game, Upgrade, Hole,};

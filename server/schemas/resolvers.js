@@ -1,19 +1,13 @@
-const { User, SaveGame, Item, DiggableHole, Upgrade } = require('../models');
+const { User, Game, Hole, Upgrade } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     user: async (parent, args, context) => {
       if (context.user) {
-        return User.findById(context.user._id).populate('saveGame');
+        return User.findById(context.user._id); 
       }
       throw new AuthenticationError('Not logged in');
-    },
-    saveGames: async () => {
-      return SaveGame.find({}).populate('inventory').populate('digging').populate('upgrades');
-    },
-    saveGame: async (parent, { id }) => {
-      return SaveGame.findById(id).populate('inventory').populate('digging').populate('upgrades');
     },
   },
   Mutation: {
@@ -23,19 +17,8 @@ const resolvers = {
       return { token, user };
     },
     
-    // Review if update user added
-/*     updateUser: async (parent, args, context) => {
-      if (context.user) {
-        return User.findByIdAndUpdate(context.user.id, args, {
-          new: true,
-        });
-      }
-
-      throw AuthenticationError;
-    }, */
-    
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+    login: async (parent, { userName, password }) => {
+      const user = await User.findOne({ userName });
 
       if (!user) {
         throw AuthenticationError;
@@ -51,14 +34,20 @@ const resolvers = {
 
       return { token, user };
     },
-    addSaveGame: async (parent, args) => {
-      const saveGame = await SaveGame.create(args);
-      return saveGame;
+    saveGame: async (parent, { input }, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('You need to be logged in to save the game');
+      }
+
+      const updatedUser = await User.findByIdAndUpdate(
+        context.user._id,
+        { savedGame: input },
+        { new: true }
+      );
+
+      return updatedUser;
     },
-    updateSaveGame: async (parent, { id, ...args }) => {
-      const saveGame = await SaveGame.findByIdAndUpdate(id, args, { new: true }).populate('inventory').populate('digging').populate('upgrades');
-      return saveGame;
-    },
+
   },
 };
 

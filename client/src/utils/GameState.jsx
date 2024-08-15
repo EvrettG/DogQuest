@@ -2,13 +2,14 @@ import { createContext, useReducer, useEffect, useContext } from 'react';
 import { Reducer } from './reducers';
 import {
   INCREASE_BONES,
-  INCREASE_XP,
-  INCREASE_LEVEL,
-  SET_ACTIVE_HOLE,
+  // INCREASE_XP,
+  // INCREASE_LEVEL,
+  // SET_ACTIVE_HOLE,
 
 } from './actions';
 
 // Helper function to match upgrade name with hole id
+// Move this to a helper function file
 const getUpgradeName = (holeId) => {
   switch (holeId) {
       case 1:
@@ -59,7 +60,7 @@ export const GameStateProvider = ({ children }) => {
             // Calculate the modified baseValue
             const modifiedBaseValue = activeHole.baseValue * (upgrade ? upgrade.level : 1);
 
-            console.log(modifiedBaseValue);
+            // console.log(modifiedBaseValue);
 
             dispatch(increaseBones(modifiedBaseValue));
         }
