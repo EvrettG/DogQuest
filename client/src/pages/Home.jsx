@@ -8,19 +8,19 @@ function Home() {
       <section>
         <h2>About the Game</h2>
         <p>
-          This is where the description of the game will go. Placeholder text for now: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
+          This Game is supposed to be an idle / Incremental game about a dog digging bones. It's supposed to start small and work up to bigger things but with less of a focus on clicking.
         </p>
       </section>
       <section>
         <h2>How to Play</h2>
         <p>
-          This section will explain how to play the game. Placeholder text for now: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
+          Simply Signup or login, Select Game select a hole to dig in and the let it go
         </p>
       </section>
       <section>
         <h2>Why This Game</h2>
         <p>
-          This section will describe the reasons for making the game. Placeholder text for now: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
+          This Game is inspired by severa other incremental games and I hope to add my own twist on both theme and later gameplay to the mix
         </p>
       </section>
     </div>
