@@ -9,6 +9,7 @@ function GameNav() {
 
     const handleSave = async () => {
         try {
+            // console.log(state.activeHole)
             const { data } = await saveGame({
                 variables: {
                     input: {
@@ -28,6 +29,7 @@ function GameNav() {
                     },
                 },
             });
+            console.log(data) //Should contain save data
             console.log("Game saved successfully for user:", data.saveGame.userName);
         } catch (err) {
             console.error("Error saving the game:", err);

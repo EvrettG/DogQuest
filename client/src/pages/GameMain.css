@@ -35,19 +35,20 @@
     padding: 10px;
     margin: 10px;
     cursor: pointer;
+    border-radius: 25px;
 }
 
 /* Unique styles for each upgrade */
-.upgrade-1 {
-    background-color: #f9f9f9;
+.SoftEarth {
+    background-color: #00CECB;
 }
 
-.upgrade-2 {
-    background-color: #e9e9e9;
+.HardEarth {
+    background-color: #00CECB;
 }
 
-.upgrade-3 {
-    background-color: #d9d9d9;
+.CompactedRocks {
+    background-color: #00CECB;
 }
 
 /* Styles for the container */
